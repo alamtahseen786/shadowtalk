@@ -13,7 +13,7 @@ body{
     font-family: Arial, sans-serif;
     color: white;
 
-    display: flex;   // Use Flexbox to center the elements
+    display: flex;   /*help to fix the elements easily */
     justify-content: center;
     align-items: center;
 
@@ -39,7 +39,7 @@ body{
 .logo{
     font-size: 40px;
 
-    margin-bottom: 10px; //space below the logo
+    margin-bottom: 10px; /* space below the logo */
 
     color: #60a5fa;
 }
