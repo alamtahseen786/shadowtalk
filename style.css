@@ -9,8 +9,13 @@
  .banner{
     width: 100%;
 
+    /* make banner taller without stretching image
+       use object-fit to preserve aspect ratio and cover */
+    height: 320px;
+    max-height: 420px;
+    object-fit: cover;
+    display: block;
     border-radius: 0px;
-
     margin-bottom: 0px;
 }
 
