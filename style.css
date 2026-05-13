@@ -1,8 +1,10 @@
+<!-- “Remove all default spacing and make sizing easier for the entire website.”>
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 
 /* BODY */
 
@@ -11,7 +13,7 @@ body{
     font-family: Arial, sans-serif;
     color: white;
 
-    display: flex;
+    display: flex;   // Use Flexbox to center the elements
     justify-content: center;
     align-items: center;
 
@@ -37,7 +39,7 @@ body{
 .logo{
     font-size: 40px;
 
-    margin-bottom: 10px;
+    margin-bottom: 10px; //space below the logo
 
     color: #60a5fa;
 }
