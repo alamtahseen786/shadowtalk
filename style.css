@@ -75,10 +75,12 @@ body{
 
 #posts{
     flex: 1;
+    --post-height: 72px;
+    --post-gap: 12px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    max-height: 280px;
+    gap: var(--post-gap);
+    max-height: calc((var(--post-height) * 4) + (var(--post-gap) * 3));
     overflow-y: auto;
     padding-right: 8px;
 }
@@ -90,6 +92,12 @@ body{
     color: white;
     line-height: 1.5;
     word-break: break-word;
+    height: var(--post-height);
+    min-height: var(--post-height);
+    max-height: var(--post-height);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 #posts:empty::before{
