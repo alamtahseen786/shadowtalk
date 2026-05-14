@@ -49,6 +49,53 @@ body{
     text-align: center;
 }
 
+/* CONFESSION AREA */
+
+.confession-layout{
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.confession-box{
+    flex: 0 0 46%;
+}
+
+.posts-panel{
+    flex: 1;
+    min-height: 240px;
+    max-height: 320px;
+    padding-top: 2px;
+}
+
+#posts{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+#posts p{
+    background-color: #1f2937;
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: white;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+#posts:empty::before{
+    content: "No messages yet. Posts will appear here.";
+    display: block;
+    color: #9ca3af;
+    font-size: 14px;
+    padding: 16px 4px;
+}
+
 /* LOGO */
 
 .logo{
@@ -117,4 +164,16 @@ button{
 
 button:hover{
     background-color: #3b82f6;
+}
+
+@media (max-width: 800px){
+    .confession-layout{
+        flex-direction: column;
+    }
+
+    .confession-box,
+    .posts-panel{
+        flex: 1 1 auto;
+        width: 100%;
+    }
 }
