@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- TITLE -->
     <title>ShadowTalk</title>
 
     <!-- CSS -->
@@ -12,47 +14,58 @@
 
     <!-- GOOGLE FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
 
+</head>
 
 <body>
 
-   <img src="banner.png" class="banner" alt="banner">
-     
-     <!-- MAIN CONTAINER -->
-        <div class="container"> 
+    <!-- BANNER -->
+    <img src="banner.png" class="banner" alt="banner">
 
-            
-            <!-- LOGO -->
-             <div class="logo">
-                ShadowTalk
-             </div>
+    <!-- MAIN CONTAINER -->
+    <div class="container">
 
-            <!-- SUBTITLE -->
-             <p class="subtitle">
-                Where hidden voices finally speak.
-             </p> 
-
-            <!-- CONFESSION AREA -->
-             <div class="confession-layout">
-               <div class="confession-box">
-                  <textarea id="confession" placeholder="what's on your mind?"></textarea>
-
-                  <button onclick="addPost()">
-                     Post Anonymously
-                  </button>
-               </div>
-
-               <div class="posts-panel">
-                  <div id="posts"></div>
-               </div>
-             </div>
-        
+        <!-- LOGO -->
+        <div class="logo">
+            ShadowTalk
         </div>
 
-        <!-- JS -->
-        <script src="script.js"></script>
+        <!-- SUBTITLE -->
+        <p class="subtitle">
+            Where hidden voices finally speak.
+        </p>
 
-        
+        <!-- CONFESSION SECTION -->
+        <div class="confession-layout">
+
+            <!-- LEFT SIDE -->
+            <div class="confession-box">
+
+                <textarea 
+                    id="confession"
+                    placeholder="What's on your mind?">
+                </textarea>
+
+                <button onclick="addPost()">
+                    Post Anonymously
+                </button>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="posts-panel">
+
+                <div id="posts"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
 </body>
+
 </html>
