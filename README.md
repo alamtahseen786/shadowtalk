@@ -9,8 +9,8 @@ This project was created as a beginner-friendly web development project to pract
 <!-- Basic Structure of ShadowTalk-->
 
 ShadowTalk
-│
 
+│
 ├── index.html
 │      ├── Banner
 │      ├── Logo
