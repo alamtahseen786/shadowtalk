@@ -1,3 +1,85 @@
+<!--
+   <!DOCTYPE html> 
+   <html lang="en">
+
+   <head>
+
+      <meta charset="UTF-8">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <title>ShadowTalk</title>
+
+      
+
+      <!--CSS 
+      <link rel="stylesheet" href="style.css">
+
+       GOOGLE FONT
+      <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+   </head>
+
+   <body>
+
+      <!--BANNER
+      <img src="banner.png" class="banner" alt="banner">
+
+      <!-- MAIN CONTAINER 
+      <div class="container">
+
+         <!-- LOGO
+         <div class="logo">
+               ShadowTalk
+         </div>
+
+         <!-- SUBTITLE 
+         <p class="subtitle">
+               Where hidden voices finally speak.
+         </p>
+
+         <!-- CONFESSION SECTION
+         <div class="confession-layout">
+
+               <!-- LEFT SIDE
+               <div class="confession-box">
+
+                  <textarea 
+                     id="confession"
+                     placeholder="What's on your mind?">
+                  </textarea>
+
+                  <button onclick="addPost()">
+                     Post Anonymously
+                  </button>
+
+               </div>
+
+               <!-- RIGHT SIDE 
+               <div class="posts-panel">
+
+                  <div id="posts"></div>
+
+               </div>
+
+         </div>
+
+      </div>
+
+      <!-- JAVASCRIPT
+      <script src="script.js"></script>
+
+   </body> 
+
+   </html>
+
+-->
+
+
+
+
+
+<!--code with given firebase code attached-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +89,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- TITLE -->
     <title>ShadowTalk</title>
 
     <!-- CSS -->
@@ -35,15 +118,15 @@
             Where hidden voices finally speak.
         </p>
 
-        <!-- CONFESSION SECTION -->
+        <!-- CONFESSION AREA -->
         <div class="confession-layout">
 
             <!-- LEFT SIDE -->
             <div class="confession-box">
 
                 <textarea 
-                    id="confession"
-                    placeholder="What's on your mind?">
+                id="confession" 
+                placeholder="What's on your mind?">
                 </textarea>
 
                 <button onclick="addPost()">
@@ -63,8 +146,116 @@
 
     </div>
 
-    <!-- JAVASCRIPT -->
-    <script src="script.js"></script>
+
+
+
+
+    <!-- FIREBASE + JS -->
+
+    <script type="module">
+
+    /* FIREBASE IMPORTS */
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+    import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs
+    }
+
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+    /* FIREBASE CONFIG */
+
+    const firebaseConfig = {
+
+    apiKey: "AIzaSyAWMQwCZNKDmAShpOJAIMTlQZi1zuarXi8",
+
+    authDomain: "shadowtalk-b2acd.firebaseapp.com",
+
+    projectId: "shadowtalk-b2acd",
+
+    storageBucket: "shadowtalk-b2acd.firebasestorage.app",
+
+    messagingSenderId: "515708053223",
+
+    appId: "1:515708053223:web:8581521a50a55d875ae442",
+
+    measurementId: "G-XC83DY6NPM"
+
+    };
+
+
+
+    /* CONNECT FIREBASE */
+
+    const app = initializeApp(firebaseConfig);
+
+    const db = getFirestore(app);
+
+
+
+
+    /* ADD POST FUNCTION */
+
+    window.addPost = async function(){
+
+    let confession = document.getElementById("confession");
+
+    let text = confession.value;
+
+    if(text != ""){
+
+    await addDoc(collection(db, "posts"), {
+
+    message: text
+
+    });
+
+    confession.value = "";
+
+    loadPosts();
+
+    }
+
+    };
+
+
+
+
+    /* LOAD POSTS */
+
+    async function loadPosts(){
+
+    let posts = document.getElementById("posts");
+
+    posts.innerHTML = "";
+
+    const querySnapshot = await getDocs(collection(db, "posts"));
+
+    querySnapshot.forEach((doc) => {
+
+    let post = document.createElement("p");
+
+    post.innerText = doc.data().message;
+
+    posts.appendChild(post);
+
+    });
+
+    }
+
+
+
+    /* LOAD POSTS WHEN WEBSITE OPENS */
+
+    loadPosts();
+
+    </script>
 
 </body>
 
