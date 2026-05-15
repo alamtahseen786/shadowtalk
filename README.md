@@ -10,6 +10,7 @@ This project was created as a beginner-friendly web development project to pract
 
 ShadowTalk
 │
+
 ├── index.html
 │      ├── Banner
 │      ├── Logo
