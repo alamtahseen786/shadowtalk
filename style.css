@@ -96,7 +96,7 @@ body{
     gap: 12px;
 
     /* show approximately four posts */
-    height: 320px;
+    height: 300px;
 
     overflow-y: auto;
 
