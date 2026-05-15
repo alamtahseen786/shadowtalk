@@ -4,30 +4,37 @@
     padding: 0;
     box-sizing: border-box;
 }
- /* BANNER */
 
- .banner{
+/* BANNER */
+
+.banner{
     width: 100%;
 
     /* make banner taller without stretching image
        use object-fit to preserve aspect ratio and cover */
     height: 320px;
+
     max-height: 420px;
+
     object-fit: cover;
+
     display: block;
-    border-radius: 0px;
-    margin-bottom: 0px;
 }
 
 /* BODY */
 
 body{
     background-color: #0b1220;
+
     font-family: Arial, sans-serif;
+
     color: white;
 
-    display: flex;   /*help to fix the elements easily */
+    display: flex;
+
+    /* help to fix the elements easily */
     flex-direction: column;
+
     align-items: center;
 
     min-height: 100vh;
@@ -47,57 +54,82 @@ body{
     border-radius: 15px;
 
     text-align: center;
+
+    margin-top: 20px;
 }
 
 /* CONFESSION AREA */
 
 .confession-layout{
     display: flex;
+
     gap: 24px;
-    align-items: stretch;
+
     text-align: left;
+
     margin-top: 10px;
 }
 
+/* LEFT SIDE */
+
 .confession-box{
-    flex: 0 0 46%;
+    flex: 1;
+
     display: flex;
+
     flex-direction: column;
 }
+
+/* RIGHT SIDE */
 
 .posts-panel{
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    padding-top: 2px;
 }
 
+/* POSTS AREA */
+
 #posts{
-    flex: 1;
     display: flex;
+
     flex-direction: column;
+
     gap: 12px;
-    /* show approximately four posts (keeps natural post height) */
+
+    /* show approximately four posts */
     max-height: 320px;
+
     overflow-y: auto;
+
     padding-right: 8px;
 }
 
+/* SINGLE POST */
+
 #posts p{
     background-color: #1f2937;
+
     border-radius: 10px;
+
     padding: 14px 16px;
+
     color: white;
+
     line-height: 1.5;
+
     word-break: break-word;
 }
 
+/* EMPTY MESSAGE */
+
 #posts:empty::before{
     content: "No messages yet. Posts will appear here.";
+
     display: block;
+
     color: #9ca3af;
+
     font-size: 14px;
+
     padding: 16px 4px;
 }
 
@@ -106,7 +138,8 @@ body{
 .logo{
     font-size: 30px;
 
-    margin-bottom: 10px; /* space below the logo */
+    /* space below the logo */
+    margin-bottom: 10px;
 
     color: #60a5fa;
 }
@@ -171,7 +204,10 @@ button:hover{
     background-color: #3b82f6;
 }
 
+/* MOBILE RESPONSIVE */
+
 @media (max-width: 800px){
+
     .confession-layout{
         flex-direction: column;
     }
@@ -179,6 +215,7 @@ button:hover{
     .confession-box,
     .posts-panel{
         flex: 1 1 auto;
+
         width: 100%;
     }
 
